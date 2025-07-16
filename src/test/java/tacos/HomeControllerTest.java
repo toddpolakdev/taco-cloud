@@ -10,7 +10,8 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
 import org.springframework.test.web.servlet.MockMvc;
-import tacos.web.HomeController;
+
+import tacos.controllers.HomeController;
 
 @WebMvcTest(HomeController.class)
 public class HomeControllerTest {
@@ -21,8 +22,8 @@ public class HomeControllerTest {
     @Test
     public void testHomePage() throws Exception {
         mockMvc.perform(get("/"))
-               .andExpect(status().isOk())
-               .andExpect(view().name("home"))
-               .andExpect(content().string(containsString("Welcome to")));
+                .andExpect(status().isOk())
+                .andExpect(view().name("home"))
+                .andExpect(content().string(containsString("Welcome to")));
     }
 }
